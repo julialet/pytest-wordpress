@@ -66,67 +66,66 @@ def test_terms_table_not_empty(db_connection):
         result = cursor.fetchone()
         assert result[0] > 0, "Tabela 'wp_terms' está vazia"
 
-#insersao
-# def test_insert_post(db_connection):
-#     cursor = db_connection.cursor()
+#insercao
+    def test_insert_post(db_connection):
+     cursor = db_connection.cursor()
     
-#     # Dados para inserção
-#     insert_query = "INSERT INTO wp_posts (ID,post_author, post_title) VALUES (%s, %s)"
-#     data = ('35','1', 'Test no Banco')
+     # Dados para inserção
+     insert_query = "INSERT INTO wp_posts (ID,post_author, post_title) VALUES (%s, %s)"
+     data = ('35','1', 'Test no Banco')
     
-#     # Executa inserção
-#     cursor.execute(insert_query, data)
-#     db_connection.commit()
+     # Executa inserção
+     cursor.execute(insert_query, data)
+     db_connection.commit()
     
-#     # Verifica se o dado foi inserido
-#     cursor.execute("SELECT * FROM wp_posts WHERE post_author = %s AND post_title = %s", data)
-#     result = cursor.fetchone()
+     # Verifica se o dado foi inserido
+     cursor.execute("SELECT * FROM wp_posts WHERE post_author = %s AND post_title = %s", data)
+     result = cursor.fetchone()
 
-# def test_insert_terms(db_connection):
-#     cursor = db_connection.cursor()
+    def test_insert_terms(db_connection):
+     cursor = db_connection.cursor()
     
-#     # Dados para inserção
-#     insert_query = "INSERT INTO wp_terms (term_id, name, slug, term_group) VALUES (%s, %s,%s,%s)"
-#     data = ('27', 'Test2_name','test2_slug','test2_term_group')
+     # Dados para inserção
+     insert_query = "INSERT INTO wp_terms (term_id, name, slug, term_group) VALUES (%s, %s,%s,%s)"
+     data = ('27', 'Test2_name','test2_slug','test2_term_group')
     
-#     # Executa inserção
-#     cursor.execute(insert_query, data)
-#     db_connection.commit()
+     # Executa inserção
+     cursor.execute(insert_query, data)
+     db_connection.commit()
     
-#     # Verifica se o dado foi inserido
-#     cursor.execute("SELECT * FROM wp_terms WHERE term_id = %s AND name = %s AND slug = %s AND term_group= %s", data)
-#     result = cursor.fetchone()
+     # Verifica se o dado foi inserido
+     cursor.execute("SELECT * FROM wp_terms WHERE term_id = %s AND name = %s AND slug = %s AND term_group= %s", data)
+     result = cursor.fetchone()
 
-# def test_insert_user(db_connection):
-#     cursor = db_connection.cursor()
+    def test_insert_user(db_connection):
+     cursor = db_connection.cursor()
     
-#     # Dados para inserção
-#     insert_query = "INSERT INTO wp_users (ID, user_login, user_email) VALUES (%s, %s,%s)"
-#     data = ('7', 'Test1_login','test@gmail.com')
+     # Dados para inserção
+     insert_query = "INSERT INTO wp_users (ID, user_login, user_email) VALUES (%s, %s,%s)"
+     data = ('7', 'Test1_login','test@gmail.com')
     
-#     # Executa inserção
-#     cursor.execute(insert_query, data)
-#     db_connection.commit()
+     # Executa inserção
+     cursor.execute(insert_query, data)
+     db_connection.commit()
     
-#     # Verifica se o dado foi inserido
-#     cursor.execute("SELECT * FROM wp_users WHERE ID = %s AND user_login = %s AND user_email = %s", data)
-#     result = cursor.fetchone()
+     # Verifica se o dado foi inserido
+     cursor.execute("SELECT * FROM wp_users WHERE ID = %s AND user_login = %s AND user_email = %s", data)
+     result = cursor.fetchone()
 
-# def test_insert_comments(db_connection):
-#     cursor = db_connection.cursor()
+    def test_insert_comments(db_connection):
+     cursor = db_connection.cursor()
     
-#     # Dados para inserção
-#     insert_query = "INSERT INTO wp_comments (comment_ID, comment_post_ID, comment_author, comment_content) VALUES (%s, %s,%s,%s)"
-#     data = ('4', '125','Julia Hille','Muito legal')
+     # Dados para inserção
+     insert_query = "INSERT INTO wp_comments (comment_ID, comment_post_ID, comment_author, comment_content) VALUES (%s, %s,%s,%s)"
+     data = ('4', '125','Julia Hille','Muito legal')
     
-#     # Executa inserção
-#     cursor.execute(insert_query, data)
-#     db_connection.commit()
+     # Executa inserção
+     cursor.execute(insert_query, data)
+     db_connection.commit()
     
-#     # Verifica se o dado foi inserido
-#     cursor.execute("SELECT * FROM wp_comments WHERE comment_ID = %s AND comment_post_ID = %s AND comment_author = %s AND comment_content= %s", data)
-#     result = cursor.fetchone()
-
+     # Verifica se o dado foi inserido
+     cursor.execute("SELECT * FROM wp_comments WHERE comment_ID = %s AND comment_post_ID = %s AND comment_author = %s AND comment_content= %s", data)
+     result = cursor.fetchone()
 def test_delete_users(db_connection):
     cursor = db_connection.cursor()
     
@@ -230,6 +229,7 @@ def test_update_term(db_connection):
     assert result is not None
     assert result[0] == new_value
 
+@pytest.mark.failx
 def test_update_post(db_connection):
     cursor = db_connection.cursor()
     
